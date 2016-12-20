@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Sale</title>
+
+      {% load staticfiles %}
+    <link href="{% static 'semantic/semantic.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'semantic/semantic.min.js'%}"></script>
+
+    <style>
+        a{
+            color:inherit
+            }
+        a:hover{
+            color:inherit
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header center aligned "><i class="setting icon"></i> Sales admin panel page</h2>
+</div>
+
+<form action="/sales/add/" method="post">
+    <div class="ui container segment">
+
+
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Customer</label>
+                            <select  class="ui dropdown" name="userId">
+                                {% for customer in customers %}
+                              <option value="{{customer.id}}">{{customer.userName}} P:{{customer.userSurname}}</option>
+                                {% endfor %}
+                            </select>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Department</label>
+                            <select  class="ui dropdown" name="departmentId">
+                                {% for dep in departments %}
+                              <option value="{{dep.id}}">{{dep.departmentName}} : {{dep.departmentAddress}}</option>
+                                {% endfor %}
+                            </select>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Product</label>
+                            <select  class="ui dropdown" name="productId">
+                                {% for product in products %}
+                              <option value="{{product.id}}">{{product.productName}} P:{{product.productPrice}}</option>
+                                {% endfor %}
+                            </select>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Sale type</label>
+                            <input type="text" placeholder="Sale Type" name="saleType">
+                        </div>
+                        <div class="field">
+                            <label>Sale description</label>
+                            <input type="text" placeholder="Sale description" name="saleDescription">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                   <button type="submit" class="ui button blue">Add new record</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    {% csrf_token %}
+
+
+    </div>
+
+</form>
+
+
+
+
+
+</body>
+</html>

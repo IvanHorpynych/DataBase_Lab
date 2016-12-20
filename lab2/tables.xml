@@ -1,0 +1,88 @@
+<database>
+    <depatments>
+        <department>
+            <departmentName>name 1</departmentName>
+            <departmentAddress>addr 1</departmentAddress>
+        </department>
+
+
+        <department>
+            <departmentName>name 2</departmentName>
+            <departmentAddress>addr 2</departmentAddress>
+        </department>
+
+
+        <department>
+            <departmentName>name 3</departmentName>
+            <departmentAddress>addr 3</departmentAddress>
+        </department>
+
+    </depatments>
+    <users>
+        <user>
+            <userName>name 1</userName>
+            <userSurname>surname 2</userSurname>
+            <userAge>20</userAge>
+        </user>
+
+        <user>
+            <userName>name 2</userName>
+            <userSurname>surname 3</userSurname>
+            <userAge>30</userAge>
+        </user>
+
+        <user>
+            <userName>name 3</userName>
+            <userSurname>surname 4</userSurname>
+            <userAge>40</userAge>
+        </user>
+
+    </users>
+    <products>
+
+        <product>
+            <productName>name 1</productName>
+            <productPrice>300</productPrice>
+        </product>
+
+        <product>
+            <productName>name 2</productName>
+            <productPrice>3000</productPrice>
+        </product>
+
+        <product>
+            <productName>name 3</productName>
+            <productPrice>30000</productPrice>
+        </product>
+
+
+    </products>
+    <sales>
+
+        <sale>
+            <userId>1</userId>
+            <productId>1</productId>
+            <departmentId>1</departmentId>
+            <saleType>Type 1</saleType>
+            <saleDescription>Desc </saleDescription>
+        </sale>
+
+        <sale>
+            <userId>2</userId>
+            <productId>2</productId>
+            <departmentId>2</departmentId>
+            <saleType>Type 2</saleType>
+            <saleDescription>Desc 2 </saleDescription>
+        </sale>
+
+
+
+
+
+
+    </sales>
+
+
+
+
+</database>

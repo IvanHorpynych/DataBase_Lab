@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List page</title>
+     {% load staticfiles %}
+    <link href="{% static 'semantic/semantic.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'semantic/semantic.min.js'%}"></script>
+</head>
+<body>
+
+
+
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header center aligned "><i class="setting icon"></i> Sales admin panel page</h2>
+</div>
+<br>
+<div class="ui grid stackable centered ">
+    <div class="row">
+
+        <div class="ui center aligned secondary segment three wide column">
+            <h3>Search by user age</h3>
+            <form class="ui form" method="get">
+                <div class="field">
+                    <label>From Age</label>
+                    <input type="number" name="fromAge" placeholder="From">
+                </div>
+                <div class="field">
+                    <label>To Age</label>
+                    <input type="number" name="toAge" placeholder="To">
+                </div>
+                <button class="ui green button" type="submit">Filter</button>
+            </form>
+
+        </div>
+        <div class="ui center aligned  one wide column"></div>
+
+        <div class="ui center aligned secondary segment three wide column">
+            <h3>Search by department</h3>
+            <form class="ui form " method="get">
+                        <div class="field">
+                            <label>Department</label>
+                            <select  class="ui dropdown" name="departmentId">
+                                {% for dep in departments %}
+                              <option value="{{dep.departmentId}}">{{dep.departmentName}} : {{dep.departmentAddress}}</option>
+                                {% endfor %}
+                            </select>
+                            <br>
+                            <button class="ui green button" type="submit">Filter</button>
+                        </div>
+            </form>
+        </div>
+        <div class="ui center aligned  one wide column"></div>
+        <div class="ui center aligned secondary segment three wide column">
+            <h3>Exclude certain word</h3>
+            <form class="ui form" method="get">
+                <div class="field">
+                    <label>Word</label>
+                    <input type="text" name="excludeWord" placeholder="Word">
+                </div>
+                <button class="ui green button" type="submit">Filter</button>
+            </form>
+        </div>
+        <div class="ui center aligned  one wide column"></div>
+        <div class="ui center aligned secondary segment three wide column">
+            <h3>Contains string</h3>
+            <form class="ui form" method="get">
+                <div class="field">
+                    <label>String</label>
+                    <input type="text" name="containsString" placeholder="String">
+                </div>
+                <button class="ui green button" type="submit">Filter</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+<br>
+<table class="ui celled striped padded table">
+  <thead>
+    <tr>
+        <th>Product name</th>
+        <th>Product price</th>
+        <th>Department name</th>
+        <th>Department address</th>
+        <th>Customer name</th>
+        <th>Customer surname</th>
+        <th>Customer age</th>
+        <th>Sale type</th>
+        <th>Sale description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if list != None%}
+        {% for sale in list %}
+        <tr>
+            <th>{{sale.productName}}</th>
+            <th>{{sale.productPrice}}</th>
+            <th>{{sale.departmentName}}</th>
+            <th>{{sale.departmentAddress}}</th>
+            <th>{{sale.userName}}</th>
+            <th>{{sale.userSurname}}</th>
+            <th>{{sale.userAge}}</th>
+            <th>{{sale.saleType}}</th>
+            <th>{{sale.saleDescription}}</th>
+            <th><a href="/sales/{{sale.salesId}}"> <button class="ui blue button">Edit</button> </a></th>
+            <th><a href="/sales/remove/{{sale.salesId}}"> <button class="ui red button">Delete</button> </a></th>
+
+
+
+        </tr>
+        {% endfor %}
+    {% endif %}
+  </tbody>
+
+</table>
+
+
+
+
+</body>
+</html>
